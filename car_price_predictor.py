@@ -31,8 +31,8 @@ def normalize(x, mu, std):
 
 
 def main():
-    st.title('Car Price Predictor')
-    car_name = st.selectbox('Select car model',
+    st.title('Vehicle Price Predictor')
+    car_name = st.selectbox('Select model of vehicle',
                             tuple(df['Car_Name'].sort_values().unique()))
 
     year = st.slider('Year of Purchase',
@@ -40,13 +40,13 @@ def main():
                      max_value=2021,
                      value=2000,
                      step=1)
-    present_price = st.number_input('Enter Present Price in Lakhs',
-                                    min_value=100000,
+    present_price = st.number_input('Enter Present Price in rupees',
+                                    min_value=10000,
                                     max_value=10000000)
-    kms_driven = st.number_input('Enter Kms Driven',
+    kms_driven = st.number_input('Enter Kms driven',
                                  min_value=1,
                                  max_value=1000000)
-    fuel_type = st.selectbox('Select Fuel Type',
+    fuel_type = st.selectbox('Select fuel type',
                              tuple(df['Fuel_Type'].sort_values().unique()))
 
     seller_type = st.selectbox('Select Seller Type',
@@ -57,7 +57,7 @@ def main():
 
     owner = st.slider('Number of Owners',
                       min_value=0,
-                      max_value=5,
+                      max_value=4,
                       value=0,
                       step=1)
 
