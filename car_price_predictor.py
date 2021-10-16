@@ -13,7 +13,7 @@ from flask import Flask
 app = Flask(__name__)
 
 model = pickle.load(open('LR.pkl', 'rb'))
-df = pd.read_csv('car data.csv')
+df = pd.read_csv('Car_Data.csv')
 
 
 def clean_inputs(car_name, present_price, fuel_type, seller_type, transmission):
