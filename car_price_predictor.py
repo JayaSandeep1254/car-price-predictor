@@ -58,11 +58,11 @@ def main():
                       step=1)
 
     if st.button('Get Price'):
-        car_name, present_price, fuel_type, seller_type, transmission = clean_inputs(
-            car_name, present_price, fuel_type, seller_type, transmission)
+        car_name, fuel_type, seller_type, transmission = clean_inputs(
+            car_name, fuel_type, seller_type, transmission)
 
         x = np.array([
-            car_name, year, present_price, kms_driven, fuel_type, seller_type,
+            car_name, year, kms_driven, fuel_type, seller_type,
             transmission, owner
         ])
 
