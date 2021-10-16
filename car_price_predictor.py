@@ -69,8 +69,7 @@ def main():
         x = normalize(x, model['mean'], model['std'])
 
         weights = model['weights']
-        bias = model['bias']
-
+        
         predicted_price = np.dot(x, weights)
         st.header('Predicted Price: ₹' +
                   str(np.round(predicted_price * 100000, 2)))
