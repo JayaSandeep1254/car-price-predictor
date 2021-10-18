@@ -18,12 +18,11 @@ df = pd.read_csv('car data.csv')
 
 def clean_inputs(car_name, present_price, fuel_type, seller_type, transmission):
     encoded_car_name = model['Car_Name'][car_name]
-    encoded_present_price = present_price / 100000
     encoded_fuel_type = model['Fuel_Type'][fuel_type]
     encoded_seller_type = model['Seller_Type'][seller_type]
     encoded_transmission = model['Transmission'][transmission]
 
-    return encoded_car_name, encoded_present_price, encoded_fuel_type, encoded_seller_type, encoded_transmission
+    return encoded_car_name, encoded_fuel_type, encoded_seller_type, encoded_transmission
 
 
 def normalize(x, mu, std):
@@ -40,9 +39,6 @@ def main():
                      max_value=2021,
                      value=2000,
                      step=1)
-    present_price = st.number_input('Enter Present Price in rupees',
-                                    min_value=10000,
-                                    max_value=10000000)
     kms_driven = st.number_input('Enter Kms driven',
                                  min_value=1,
                                  max_value=1000000)
@@ -62,11 +58,11 @@ def main():
                       step=1)
 
     if st.button('Get Price'):
-        car_name, present_price, fuel_type, seller_type, transmission = clean_inputs(
-            car_name, present_price, fuel_type, seller_type, transmission)
+        car_name, fuel_type, seller_type, transmission = clean_inputs(
+            car_name, fuel_type, seller_type, transmission)
 
         x = np.array([
-            car_name, year, present_price, kms_driven, fuel_type, seller_type,
+            car_name, year, kms_driven, fuel_type, seller_type,
             transmission, owner
         ])
 
