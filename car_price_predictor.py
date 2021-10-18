@@ -16,7 +16,7 @@ model = pickle.load(open('LR.pkl', 'rb'))
 df = pd.read_csv('car data.csv')
 
 
-def clean_inputs(car_name, present_price, fuel_type, seller_type, transmission):
+def clean_inputs(car_name, fuel_type, seller_type, transmission):
     encoded_car_name = model['Car_Name'][car_name]
     encoded_fuel_type = model['Fuel_Type'][fuel_type]
     encoded_seller_type = model['Seller_Type'][seller_type]
