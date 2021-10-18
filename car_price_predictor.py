@@ -73,7 +73,7 @@ def main():
 
         predicted_price = np.dot(x, weights) + bias
         st.header('Predicted Price: ₹' +
-                  str(np.round(predicted_price * 100000, 2)))
+                  str(np.round(predicted_price, 2)))
 
 
 if __name__ == '__main__':
